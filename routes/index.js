@@ -36,4 +36,11 @@ router.get('/pokemon', function(req, res) {
   res.send(pokemon);
 });
 
+router.post('/pokemon', function(req, res) {
+    console.log("In Pokemon Post");
+    console.log(req.body);
+    pokemon.push(req.body);
+    res.end('{"success" : "Updated Successfully", "status" : 200}');
+}); 
+
 module.exports = router;

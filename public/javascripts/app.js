@@ -26,4 +26,19 @@ function mainCtrl ($scope, pokemonFetcher) {
     .then(function (data) {
       $scope.pokemon = data
     })
+
+    $scope.addPoki = function() {
+      var formData = {name:$scope.Name,avatarUrl:$scope.Url};
+      console.log(formData);
+      var pokiURL = 'pokemon';
+      $http({
+         url: pokiURL,
+         method: "POST",
+         data: formData
+      }).success(function(data, status, headers, config) {
+        console.log("Post worked");
+      }).error(function(data, status, headers, config) {
+        console.log("Post failed");
+      });
+  }
 }
